@@ -13,10 +13,18 @@
   "keywords": [
     "impulse"
   ],
-  "author": "LinJhongwun",
+  "author": "Jhongwun.Lin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhuheyang/Express-build/issues"
   },
-  "homepage": "https://github.com/zhuheyang/Express-build#readme"
+  "homepage": "https://github.com/zhuheyang/Express-build#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0"
+  }
 }
