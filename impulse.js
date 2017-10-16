@@ -21,13 +21,13 @@ app.get('/loading', function(req, res) {
 
 
 // 404 catch-all handler
-app.use(function(req, res, next) {
+app.use(function(req, res) {
   res.status(404);
   res.render('404');
 });
 
 // 500 error handler
-app.use(function(err, req, res, next) {
+app.use(function(req, res, err) {
   console.error(err.stack);
   res.status(500);
   res.render('500');
