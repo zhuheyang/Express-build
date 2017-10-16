@@ -6,7 +6,7 @@ const handlebars = require('express-handlebars').create({
   defaultLayout: 'main'
 });
 
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', handlebars.engine);
 //set template's engine
