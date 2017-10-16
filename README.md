@@ -32,6 +32,14 @@ a simple application imitating the impulse interface
 ### 客户端与服务器端交互过程:
       |->接收404页面  
 ! -> 扫码    自动登陆->返回用户信息      loading页面->请求加载   购买页面->发送支付请求  
-      ↓      ↑              ↓            ↑             ↓       ↑            ↓  
-     识别->请求用户登陆   记录用户信息,发送loading        发送加载信息       处理支付请求  
-      |->返回404页面    
+      ↓       ↑            ↓              ↑            ↓       ↑            ↓  
+     识别->请求用户登陆   记录用户信息,发送loading       发送加载信息        处理支付请求  
+      |->返回404页面 
+
+### Loading页面构建:
+#### Header
+Header用了超级多的<span><div>标签.新的html5标签用到的有很基础的header,footer.头部logo用浮动向左缩进, 相关信息直接<br>换行,很low的做法,但会改进的.
+#### Body1
+Body1中用到了text-align将提示信息居中,flex布局将三个选择按钮, 用到:弹性盒子设置display: flex; 盒内元素直接flex: 1 1 auto; 同时设定相关padding,直接就可以自动伸缩了.但超过放大超过150%的时候就会溢出, 主要是固定了按钮的大小, 则不具有伸缩性了(会尝试改进).
+#### Body2
+Body2中主要也是margin与padding的使用,以及clear:both的应用.但有遇到一个问题是[卡余额￥***]用span元素标记的话无法清除浮动,要使用段落p元素进行标记才行.
