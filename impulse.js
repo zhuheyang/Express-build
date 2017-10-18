@@ -1,12 +1,38 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+
+//使用中间件,不使用签名
+app.use(cookieParser());
+
+// //若需要使用签名，需要指定一个secret,字符串,否者会报错
+// app.use(cookiePareser('Simon'));
+
+// const mongoose = require('mongoose');
+
+// mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://localhost/client', { useMongoClient: true });
+
+// var ClientSchema = mongoose.Schema({
+//   ````
+// });
+// var Client = mongoose.model('Client', ClientSchema);
+
+// var Client = mongoose.model('Client', {
+//   opid: String,
+//   mocode: String,
+//   customerclient: String
+// });
+
+// 设置static中间件,为后面将发送的静态文件创建路由
+app.use(express.static(__dirname + '/public'));
 
 const handlebars = require('express-handlebars').create({
   layoutDir:  'views/',
   defaultLayout: 'main'
 });
-
-app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', handlebars.engine);
 //set template's engine
@@ -14,17 +40,34 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 
-//the index.html
-app.get('/', function(req, res, next) {
-  
-})
+//home page routers
+app.get('/', function(req, res) {
+  var credentials = require('./lib/credentials.js');
+  res.cookie("name", credentials, {maxAge: 900000, httpOnly:true });
+  console.log('Cookies: ', req.cookies.name);
+  // res.send(req.cookies.name);
+  // res.render('home');
+  // var credentials = require('./lib/credentials.js');
+  // var client1 = new Client({
+  //   opid: credentials.opid,
+  //   mcode: credentials.mcode,
+  //   customerclient: credentials.customerclient
+  // });
+  // client1.save(function(err) {
+  //   if(err) {
+  //     console.log('There is an error in client1.save, check it!');
+  //   }else {
+  //     console.log("success");
+  //   }
+  // });
+  res.redirect('http://localhost:3000/loading');    
+});
+
 // loading page routers
 app.get('/loading', function(req, res) {
-  res.render('loading');
-})  
-
-
-
+  res.render('loading', req.cookies.name);
+  console.log(req.cookies.name.opid)
+});  
 
 
 // 404 catch-all handler
