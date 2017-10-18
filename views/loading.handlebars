@@ -2,7 +2,7 @@
   <img class="logoImg" src="/img/logo.jpg" alt="counect" width="250px" height="250px">
   <div id="message">
     <span class="deviceName">互帮1</span><br>
-    <span class="deviceId">9601705250095</span><br>
+    <span class="deviceId">{{mcode}}</span><br>
     <span class="service">服务热线: </span><span class="phoneNum">400-632-6656</span>
   </div>
   <div class="tips">
@@ -116,7 +116,7 @@
   </style>
 
   <div class="body2">
-    <span class="memberNum">会员卡:1010000091755115</span>
+    <span class="memberNum">会员卡: {{ opid }}</span>
     <span class="useTip">余额可以再次投币使用</span>
     {{!-- (两个分别左右float, 加margin) --}}
     <p class="balance">卡余额 ￥ <b id="balance">0.01</b> </p>
