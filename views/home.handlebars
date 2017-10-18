@@ -1,0 +1,159 @@
+<header>
+  <img class="logoImg" src="/img/logo.jpg" alt="counect" width="250px" height="250px">
+  <div id="message">
+    <span class="deviceName">互帮1</span><br>
+    <span class="deviceId">9601705250095</span><br>
+    <span class="service">服务热线: </span><span class="phoneNum">400-632-6656</span>
+  </div>
+  <div class="tips">
+    <span class="tipsColor">Tips</span> <span>投币按钮变成金色, 即可正常投币</span>
+  </div>
+  {{!-- <span>加载中···</span>   这里要写个动画 --}}
+</header>
+
+{{!-- (logo高度与文字div高度相同,调整fontsize) --}}
+{{!-- (整个背景框采用logo的背景色) --}}
+
+<style>
+  header {
+    margin: 0, auto;
+    height: 360px;
+    color: #fff;
+    background-color: rgb(150, 150, 150 ); 
+  }
+  .logoImg {
+    float: left;
+    margin: 30px 30px 30px 40px;
+  }
+  #message {
+    padding :30px;
+  }
+  .deviceName {
+    font-size: 100px;
+    font-weight: bold;
+  }
+  .deviceId, .phoneNum {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .service {
+    font-size: 27px;
+  }
+  .tips {
+    clear: left;
+    font-size: 20px;    
+    margin: 20px 0px 30px 40px;
+  }
+  .tipsColor {
+    background-color: green;
+  }
+</style>
+
+<style>
+  .body {
+    background-color: #eeeeee;
+  }
+</style>
+
+<div class="body">
+
+  <div class="body1">
+    <p class="choose">请选择套餐</p>
+    {{!-- radius调50%,同时加阴影羽化5px --}}
+    <div class="purchase">
+      <div>
+        <button>￥ <span>8</span></button>
+        <p>休闲放松</p>
+      </div>
+      <div>
+        <button>￥ <span>10</span></button>
+        <p>套餐2</p>
+      </div>
+      <div>
+        <button>￥ <span>15</span></button>
+        <p>套餐3</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .body1 {
+      height: 600px;
+      background-color: #fff;
+      color:#999;
+      margin: 20px;
+    }
+    .choose{
+      text-align: center;
+      padding: 15px;
+      margin: 0px;
+      font-size: 25px;
+    }
+    .purchase {
+      display: flex;
+    }
+    .purchase > div {
+      flex: 1 1 auto;
+      padding: 20px 25px ;
+      text-align: center;
+    }
+    .purchase > div > p {
+      font-size: 25px;
+    }
+    button {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px;
+      box-shadow: 5px 5px 5px #888888;
+      background-color: orange;
+      color: aliceblue;
+    }
+    button span {
+      font-size: 50px;
+    }
+  </style>
+
+  <div class="body2">
+    <span class="memberNum">会员卡:1010000091755115</span>
+    <span class="useTip">余额可以再次投币使用</span>
+    {{!-- (两个分别左右float, 加margin) --}}
+    <p class="balance">卡余额 ￥ <b id="balance">0.01</b> </p>
+  </div>
+
+  <style>
+    .body2 {
+      height: 240px;
+      margin: 20px;
+      background-color: #dddddd;
+      font-size: 25px;
+      color: #aaaaaa;
+    }
+    .memberNum {
+      float: left;
+      padding: 25px 0 0px 50px;
+    }
+    .useTip {
+      float: right;
+      padding: 25px 30px 0px 0;
+    }
+    .balance {
+      clear: both;
+      padding: 20px 0 0 100px;
+    }
+    #balance {
+      font-size: 100px;
+      color: rgb(50, 50, 50);
+    }
+
+  </style>
+  
+  <footer class="bottom">Copyright &copy;</footer>
+  <style>
+    footer {
+      text-align: center;
+      padding: 50px 0 200px 0 ;
+    }
+  </style>
+
+</div>
