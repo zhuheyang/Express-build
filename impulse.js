@@ -14,10 +14,17 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 
+//the index.html
+app.get('/', function(req, res, next) {
+  
+})
 // loading page routers
 app.get('/loading', function(req, res) {
   res.render('loading');
 })  
+
+
+
 
 
 // 404 catch-all handler
