@@ -42,10 +42,15 @@ app.set('port', process.env.PORT || 3000);
 
 //home page routers
 app.get('/', function(req, res) {
-  var credentials = require('./lib/credentials.js');
+  // var credentials = require('./lib/credentials.js');
+  var credentials = {
+    opid: req.query.opid,
+    mcode: req.query.mcode
+  };
   res.cookie("name", credentials, {maxAge: 900000, httpOnly:true });
-  console.log('Cookies: ', req.cookies.name);
-  // res.send(req.cookies.name);
+  res.redirect('http://localhost:3000/loading');    
+
+  /* mongoose存储系列 */
   // res.render('home');
   // var credentials = require('./lib/credentials.js');
   // var client1 = new Client({
@@ -60,7 +65,6 @@ app.get('/', function(req, res) {
   //     console.log("success");
   //   }
   // });
-  res.redirect('http://localhost:3000/loading');    
 });
 
 // loading page routers
